@@ -12,6 +12,7 @@
   "author": "Lambda Team",
   "license": "ISC",
   "dependencies": {
+    "eslint-plugin-immer-reducer": "^0.1.1",
     "immer-reducer": "0.7.10",
     "react": "16.14.0",
     "react-dom": "16.14.0",
@@ -21,6 +22,7 @@
     "redux": "4.0.5",
     "redux-thunk": "2.3.0",
     "reselect": "4.0.0",
+    "shortid": "^2.2.16",
     "styled-components": "5.2.0",
     "styled-normalize": "8.0.7"
   },
@@ -32,6 +34,7 @@
     "@types/react-redux": "7.1.9",
     "@types/react-router": "5.1.8",
     "@types/react-router-dom": "5.1.6",
+    "@types/shortid": "0.0.29",
     "@types/styled-components": "5.1.4",
     "@types/webpack": "4.41.22",
     "@typescript-eslint/eslint-plugin": "4.4.1",

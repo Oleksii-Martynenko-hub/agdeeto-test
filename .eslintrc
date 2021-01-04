@@ -8,6 +8,8 @@
   },
   "rules": {
     "import/no-extraneous-dependencies": ["error", { "devDependencies": ["webpack.config.ts"] }],
-    "@typescript-eslint/no-use-before-define": ["error", { "variables": false }]
+    "@typescript-eslint/no-use-before-define": ["error", { "variables": false }],
+    "react/prop-types": [0, { "ignore": [], "customValidators": [], "skipUndeclared": true }],
+    "no-shadow": ["off", { "builtinGlobals": false, "hoist": "functions", "allow": [] }]
   }
 }

@@ -16,16 +16,22 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const App: React.FC = () => (
-  <BrowserRouter>
-    <Provider store={store}>
-      <GlobalStyle />
+const App: React.FC = () => {
+  store.subscribe(() => {
+    localStorage.setItem('appState', JSON.stringify(store.getState()));
+  });
 
-      <Switch>
-        <Route path="/" component={Home} exact />
-      </Switch>
-    </Provider>
-  </BrowserRouter>
-);
+  return (
+    <BrowserRouter>
+      <Provider store={store}>
+        <GlobalStyle />
+
+        <Switch>
+          <Route path="/" component={Home} exact />
+        </Switch>
+      </Provider>
+    </BrowserRouter>
+  );
+};
 
 export default App;

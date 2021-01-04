@@ -20,4 +20,7 @@ const enhancer = composeEnhancers(applyMiddleware(thunk));
 export type State = ReturnType<typeof rootReducer>;
 export type Actions = LoginActions;
 
-export default createStore(rootReducer, enhancer);
+const persistedState = localStorage.getItem('appState')
+  ? JSON.parse(localStorage.getItem('appState')!) : {};
+
+export default createStore(rootReducer, persistedState, enhancer);
