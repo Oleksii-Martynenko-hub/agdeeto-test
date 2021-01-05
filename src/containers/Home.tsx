@@ -18,12 +18,22 @@ const Home: React.FC<Props> = () => {
 
   return (
     <HomeStyled>
-      <button onClick={handleClick} type="submit">button</button>
       <FormPlace />
+      <button onClick={handleClick} type="submit">button</button>
     </HomeStyled>
   );
 };
 
-const HomeStyled = styled.div``;
+const HomeStyled = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  &>button {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+`;
 
 export default Home;

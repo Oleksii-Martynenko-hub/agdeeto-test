@@ -12,8 +12,11 @@
   "author": "Lambda Team",
   "license": "ISC",
   "dependencies": {
+    "@reach/combobox": "^0.12.1",
+    "@react-google-maps/api": "^2.0.2",
     "immer-reducer": "0.7.10",
     "react": "16.14.0",
+    "react-cool-onclickoutside": "^1.5.9",
     "react-dom": "16.14.0",
     "react-places-autocomplete": "^7.3.0",
     "react-redux": "7.2.1",
@@ -23,10 +26,12 @@
     "redux-thunk": "2.3.0",
     "reselect": "4.0.0",
     "styled-components": "5.2.0",
-    "styled-normalize": "8.0.7"
+    "styled-normalize": "8.0.7",
+    "use-places-autocomplete": "^1.7.0"
   },
   "devDependencies": {
     "@types/copy-webpack-plugin": "6.0.0",
+    "@types/googlemaps": "^3.43.0",
     "@types/html-webpack-plugin": "3.2.3",
     "@types/react": "16.9.52",
     "@types/react-dom": "16.9.8",
