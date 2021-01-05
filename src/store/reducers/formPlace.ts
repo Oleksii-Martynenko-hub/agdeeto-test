@@ -18,8 +18,8 @@ const initialState: FormPlaceState = {
     address: '',
     description: '',
     latLng: {
-      lat: 0,
-      lng: 0,
+      lat: 50.4501,
+      lng: 30.5234,
     },
   },
 };
