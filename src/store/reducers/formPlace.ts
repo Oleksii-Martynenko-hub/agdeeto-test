@@ -33,6 +33,10 @@ export class FormPlaceReducer extends ImmerReducer<FormPlaceState> {
     this.draftState.values.address = address;
   }
 
+  setDescription(description: string) {
+    this.draftState.values.description = description;
+  }
+
   setLatLng({ lat, lng }: ILatLng) {
     this.draftState.values.latLng.lat = lat;
     this.draftState.values.latLng.lng = lng;

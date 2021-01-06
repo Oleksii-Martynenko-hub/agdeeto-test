@@ -13,6 +13,7 @@ const Home: React.FC<Props> = () =>
 const HomeStyled = styled.div`
   width: 100%;
   height: 100vh;
+  padding: 22px;
   min-height: 100vh;
   max-height: 100%;
   position: relative;  

@@ -11,20 +11,10 @@ const UploadPhoto: React.FC<Props> = () => {
     const { target: { files } } = event;
     const fileList = files ? Array.from(files) : [];
     setFilesState(fileList);
-    console.log(filesState);
   };
 
   const renderFiles = () => {
     filesState?.map((File) => console.log(File.name));
-    // return(
-    // <>
-    //   {filesState.length
-    //   && filesState.map((file.toO) => (
-    //     <li>
-    //       <h3>{file.name}</h3>
-    //     </li>
-    //   ))}
-    // </>
   };
 
   return (
@@ -34,7 +24,6 @@ const UploadPhoto: React.FC<Props> = () => {
           <InputPhotoStyled type="file" multiple onChange={handleChange} />
         </LabelStyled>
       </li>
-      {renderFiles}
       <button onClick={renderFiles} type="button">button</button>
     </UploadStyled>
   );

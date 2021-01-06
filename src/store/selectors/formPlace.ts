@@ -19,6 +19,11 @@ export const selectFormPlaceValuesAddress: Selector<State, string> = createSelec
   ({ address }) => address,
 );
 
+export const selectFormPlaceValuesDescription: Selector<State, string> = createSelector(
+  selectFormPlaceValues,
+  ({ description }) => description,
+);
+
 export const selectFormPlaceValuesLatLng: Selector<State, ILatLng> = createSelector(
   selectFormPlaceValues,
   ({ latLng }) => latLng,

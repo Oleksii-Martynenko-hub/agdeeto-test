@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 import { selectFormPlaceValues } from '@/store/selectors/formPlace';
 import { formPlaceActions } from '@/store/actions/formPlace';
@@ -16,26 +17,29 @@ const FormPlace: React.FC<Props> = () => {
   const values = useSelector(selectFormPlaceValues);
 
   const submitHandler = (): void => {
-    // const dispatch = useDispatch();
     dispatch(formPlaceActions.setValues(values));
-    console.log(values);
+  };
+
+  const handleChange = (e: { target: { value: string; }; }) => {
+    dispatch(formPlaceActions.setDescription(e.target.value));
   };
 
   return (
     <FormPlaceStyled>
       <PlaceSearch />
-      <Description placeholder="Description your location" />
+      <Description onChange={handleChange} placeholder="Description your location" />
       <MapGoogle />
       <InputPhoto />
-      <Button onClick={submitHandler} type="button">submit</Button>
+      <Button onClick={submitHandler} type="button">
+        <NavLink to="/createLocation">submit</NavLink>
+      </Button>
     </FormPlaceStyled>
   );
 };
 
 const FormPlaceStyled = styled.form`
   width: 100%;
-  height: 100%;
-  padding: 22px;
+  height: 100%;  
   display: flex;
   flex-flow: nowrap column;
 `;
@@ -67,6 +71,10 @@ const Button = styled.button`
   text-transform: uppercase;
   text-align: center;
   outline: none;
+  &>a {
+    color: #000;
+    text-decoration: none;
+  }
 `;
 
 export default FormPlace;

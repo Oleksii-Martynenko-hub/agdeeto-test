@@ -17,6 +17,10 @@ build/
 # Log files
 *.log
 
+# env files
+*.env.local
+*.env
+
 # Package files
 *.jar
 

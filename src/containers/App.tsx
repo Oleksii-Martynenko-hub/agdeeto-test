@@ -6,6 +6,8 @@ import { normalize } from 'styled-normalize';
 
 import store from '@/store';
 
+import Location from '@/components/Location';
+import CreateLocation from '@/components/CreateLocation';
 import Home from './Home';
 
 const GlobalStyle = createGlobalStyle`
@@ -23,6 +25,8 @@ const App: React.FC = () => (
 
       <Switch>
         <Route path="/" component={Home} exact />
+        <Route path="/createLocation" component={CreateLocation} />
+        <Route path="/location/:id_test" component={Location} />
       </Switch>
     </Provider>
   </BrowserRouter>

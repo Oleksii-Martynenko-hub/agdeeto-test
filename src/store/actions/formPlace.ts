@@ -7,6 +7,7 @@ export const formPlaceActions = createActionCreators(FormPlaceReducer);
 export type FormPlace =
   | ReturnType<typeof formPlaceActions.setValues>
   | ReturnType<typeof formPlaceActions.setAddress>
+  | ReturnType<typeof formPlaceActions.setDescription>
   | ReturnType<typeof formPlaceActions.setLatLng>;
 
 // export const authRestoreAsync = (): AsyncAction => async (dispatch, getState) => {

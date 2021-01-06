@@ -19,7 +19,7 @@ import { selectFormPlaceValuesAddress } from '@/store/selectors/formPlace';
 interface Props {}
 
 const PlaceSearch: React.FC<Props> = () => {
-  const address = !!useSelector(selectFormPlaceValuesAddress);
+  const address = useSelector(selectFormPlaceValuesAddress);
   const dispatch = useDispatch();
 
   const {
@@ -29,13 +29,13 @@ const PlaceSearch: React.FC<Props> = () => {
     setValue,
   } = usePlacesAutocomplete();
 
-  const handleInput = (e: { target: { value: string; }; }) => {
+  const handleChange = (e: { target: { value: string; }; }) => {
     setValue(e.target.value);
     dispatch(formPlaceActions.setAddress(e.target.value));
   };
 
   const handleSelect = (val: any) => {
-    setValue(val, true);
+    setValue(val, false);
     dispatch(formPlaceActions.setAddress(val));
 
     getGeocode({ address: val })
@@ -49,7 +49,7 @@ const PlaceSearch: React.FC<Props> = () => {
       <InputStyled
         active={address}
         value={value}
-        onChange={handleInput}
+        onChange={handleChange}
         disabled={!ready}
         placeholder="Search your location"
       />
@@ -78,7 +78,7 @@ const PopoverStyled = styled(ComboboxPopover)`
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: block;
   `;
-const InputStyled = styled(ComboboxInput)<{active: boolean}>`
+const InputStyled = styled(ComboboxInput)<{active: any}>`
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 18px;
   width: 100%;
