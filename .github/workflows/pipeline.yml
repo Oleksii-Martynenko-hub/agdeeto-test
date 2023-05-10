@@ -1,0 +1,34 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  master:
+    name: Production pipeline
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    env:
+        SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+        SSH_KEY_PATH: ${{ github.workspace }}/../private.key
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Create SSH key
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ../private.key
+          sudo chmod 600 ../private.key
+        shell: bash
+       
+      - name: Build the Docker image
+        run: docker build -t dokku/gdeeto-web:latest .
+       
+      - name: Save and upload Docker image
+        run: docker save dokku/gdeeto-web:latest | bzip2 | ssh -i $SSH_KEY_PATH -o StrictHostKeyChecking=no github@64.227.65.160 "bunzip2 | docker load"
+      
+      - name: Dokku create, deploy and tag
+        run: ssh -i $SSH_KEY_PATH -o StrictHostKeyChecking=no github@64.227.65.160 "dokku tags:create gdeeto-web previous; dokku tags:deploy gdeeto-web latest && dokku tags:create gdeeto-web latest"

@@ -17,6 +17,13 @@ build/
 # Log files
 *.log
 
+# env files
+*.env.local
+*.env
+
+# vscode files
+*.vscode
+
 # Package files
 *.jar
 

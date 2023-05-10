@@ -1,15 +1,28 @@
 import { createReducerFunction, ImmerReducer } from 'immer-reducer';
+import { ILocation } from './location';
+
+export interface UserI {
+  email: string;
+  password: string;
+}
 
 export interface LoginState {
   isPending: boolean;
   isResolved: boolean;
   isRejected: boolean;
+  locationList: ILocation[];
+  user: UserI;
 }
 
 const initialState: LoginState = {
   isPending: false,
   isResolved: false,
   isRejected: false,
+  locationList: [],
+  user: {
+    email: '',
+    password: '',
+  },
 };
 
 export class LoginReducer extends ImmerReducer<LoginState> {
@@ -27,6 +40,18 @@ export class LoginReducer extends ImmerReducer<LoginState> {
   setIsRejected() {
     this.draftState.isPending = false;
     this.draftState.isRejected = true;
+  }
+
+  addToLocationList(location: ILocation) {
+    this.draftState.locationList.push(location);
+  }
+
+  setEmail(email: string) {
+    this.draftState.user.email = email;
+  }
+
+  setPassword(password: string) {
+    this.draftState.user.password = password;
   }
 }
 
