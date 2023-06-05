@@ -3,7 +3,7 @@ import { ILocation } from '@/store/reducers/location';
 
 import HttpClient from './HttpClient';
 
-export const API_URL = 'https://api.gdeeto.com';
+export const API_URL = process.env.REACT_APP_API_URL;
 
 class MainApi extends HttpClient {
   private static classInstance?: MainApi;
