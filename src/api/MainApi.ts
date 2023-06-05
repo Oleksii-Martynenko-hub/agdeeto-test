@@ -3,7 +3,9 @@ import { ILocation } from '@/store/reducers/location';
 
 import HttpClient from './HttpClient';
 
-export const API_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : process.env.REACT_APP_API_URL;
+export const API_URL = process.env.NODE_ENV === 'development' 
+  ? 'http://localhost:3001' 
+  : process.env.REACT_APP_API_URL || '';
 
 class MainApi extends HttpClient {
   private static classInstance?: MainApi;
