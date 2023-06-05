@@ -21,9 +21,6 @@ build/
 *.env.local
 *.env
 
-# vscode files
-*.vscode
-
 # Package files
 *.jar
 
